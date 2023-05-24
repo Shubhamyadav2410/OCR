@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Setup">
+        <div slot="actions">
+            <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved" size="x-small" if:true={valid}></lightning-icon>
+            <lightning-icon icon-name="action:close" alternative-text="Delete" title="Delete" size="x-small" if:false={valid}></lightning-icon>
+        </div>
+        <div class="slds-p-horizontal_small">
+            <lightning-input class="input-email" type="email" label="Email" onchange={handleEmailChange} value={email}></lightning-input>
+            <div class="slds-form-element">
+                <span class="slds-form-element__label" id="file-selector-primary-label">EinsteinPlatform.pem file</span>
+                <div class="slds-form-element__control">
+                  <div class="slds-file-selector slds-file-selector_files">
+                    <lightning-input type="file" label="einstein_platform.pem" accept=".pem" onchange={handleFileChange}></lightning-input>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div slot="footer">
+            <lightning-button variant="brand" label="Save" title="Save" onclick={save} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

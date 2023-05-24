@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Result Preview">
+        <div class="slds-p-horizontal_small" if:false={result}>
+            Scan a business card or an image containing a table.
+        </div>
+        <div class="slds-p-horizontal_small" if:true={result}>
+            <lightning-tabset>
+                <lightning-tab label="Formatted">
+                    <lightning-datatable if:false={html}
+                        key-field="id"
+                        data={data}
+                        columns={columns}
+                        hide-checkbox-column="false"></lightning-datatable>
+
+                        <lightning-formatted-rich-text if:true={html} value={html}></lightning-formatted-rich-text>
+                </lightning-tab>
+                <lightning-tab label="Raw">
+                    <pre>
+                        {raw}
+                    </pre>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>
